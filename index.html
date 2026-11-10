@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PKBM Amanah Bangsa - Pusat Kegiatan Belajar Masyarakat</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#22c55e',
+                            600: '#16a34a',
+                            700: '#15803d',
+                            800: '#166534',
+                            900: '#14532d',
+                        },
+                        accent: {
+                            500: '#eab308',
+                            600: '#ca8a04',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-gray-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-12 h-12 bg-gradient-to-tr from-brand-700 to-brand-500 rounded-xl flex items-center justify-center text-white text-xl font-bold shadow-md shadow-brand-500/20 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-extrabold text-gray-900 tracking-tight leading-none">PKBM AMANAH BANGSA</span>
+                        <span class="text-xs text-brand-600 font-medium tracking-wide">Yayasan Pendidikan Masyarakat</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8 font-medium text-gray-600 text-sm">
+                    <a href="#beranda" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-600">Beranda</a>
+                    <a href="#tentang" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-600">Tentang Kami</a>
+                    <a href="#program" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-600">Program Kesetaraan</a>
+                    <a href="#keunggulan" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-600">Keunggulan</a>
+                    <a href="#galeri" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-600">Galeri</a>
+                    <a href="#kontak" class="hover:text-brand-600 transition-colors py-2 border-b-2 border-transparent hover:border-brand-600">Kontak</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden md:flex items-center">
+                    <a href="#daftar" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2.5 rounded-xl font-semibold shadow-md shadow-brand-600/20 hover:shadow-lg hover:shadow-brand-600/30 transition-all hover:-translate-y-0.5 text-sm">
+                        <i class="fa-solid fa-user-plus mr-2"></i>Daftar PPDB
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none" aria-label="Toggle Navigation">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3">
+            <a href="#beranda" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Beranda</a>
+            <a href="#tentang" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Tentang Kami</a>
+            <a href="#program" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Program Kesetaraan</a>
+            <a href="#keunggulan" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Keunggulan</a>
+            <a href="#galeri" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Galeri</a>
+            <a href="#kontak" class="mobile-nav-link block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-brand-600 hover:bg-brand-50">Kontak</a>
+            <a href="#daftar" class="mobile-nav-link block text-center bg-brand-600 text-white px-4 py-2.5 rounded-xl font-semibold mt-4">
+                <i class="fa-solid fa-user-plus mr-2"></i>Daftar PPDB Online
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="pt-32 pb-20 md:pt-40 md:pb-28 bg-gradient-to-b from-brand-50/50 via-white to-slate-50 relative overflow-hidden">
+        <!-- Background decorative elements -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-100/60 blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-accent-500/10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-100 border border-brand-200 text-brand-800 text-xs sm:text-sm font-semibold">
+                        <span class="flex h-2 w-2 rounded-full bg-brand-600 animate-pulse"></span>
+                        Penerimaan Peserta Didik Baru (PPDB) Telah Dibuka!
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight leading-tight">
+                        Wujudkan Masa Depan Cerah Bersama <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-700 to-brand-500">PKBM Amanah Bangsa</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Lembaga pendidikan non-formal terakreditasi yang siap membantu Anda meraih ijazah kesetaraan (Paket A, B, C) serta keterampilan kerja untuk masa depan yang lebih mandiri.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="#daftar" class="w-full sm:w-auto px-8 py-4 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg shadow-brand-600/30 hover:shadow-xl hover:shadow-brand-600/40 transition-all hover:-translate-y-0.5 text-center">
+                            Daftar Sekarang <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#program" class="w-full sm:w-auto px-8 py-4 bg-white hover:bg-gray-50 text-gray-700 font-semibold border border-gray-200 rounded-xl shadow-sm transition-all text-center">
+                            Lihat Program Kami
+                        </a>
+                    </div>
+
+                    <!-- Mini Features Grid -->
+                    <div class="pt-8 border-t border-gray-100 grid grid-cols-3 gap-4 text-center lg:text-left">
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-700">P2970447</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">NPSN Resmi</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-700">35</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">Warga Belajar</p>
+                        </div>
+                        <div>
+                            <p class="text-2xl sm:text-3xl font-extrabold text-brand-700">Akreditasi C</p>
+                            <p class="text-xs sm:text-sm text-gray-500 font-medium">Kemendikbudristek</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-5 relative">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <!-- Main Card / Image Frame -->
+                        <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl bg-white border-4 border-white">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Kegiatan Belajar PKBM" 
+                                 class="w-full h-80 sm:h-96 object-cover"
+                                 onerror="this.src='https://placehold.co/600x800/16a34a/ffffff?text=PKBM+Amanah+Bangsa'">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col justify-end p-6 text-white">
+                                <span class="bg-brand-500/90 backdrop-blur-sm text-xs font-semibold px-2.5 py-1 rounded w-fit mb-2">Belajar Lebih Mudah</span>
+                                <p class="font-bold text-lg">Pendidikan Kesetaraan Berkualitas</p>
+                                <p class="text-sm text-gray-200">Terbuka untuk semua usia tanpa batas.</p>
+                            </div>
+                        </div>
+
+                        <!-- Floating Badges -->
+                        <div class="absolute -bottom-6 -left-6 z-20 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-3 hidden sm:flex">
+                            <div class="w-10 h-10 bg-accent-500/20 text-accent-600 rounded-xl flex items-center justify-center text-xl">
+                                <i class="fa-solid fa-certificate"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-500 font-medium">Akreditasi</p>
+                                <p class="text-sm font-bold text-gray-800">Resmi Kemendikbud</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="relative rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80" 
+                             alt="Gedung PKBM Amanah Bangsa" 
+                             class="w-full h-96 object-cover"
+                             onerror="this.src='https://placehold.co/800x600/15803d/ffffff?text=Yayasan+Amanah+Bangsa'">
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full uppercase tracking-wider">
+                        Tentang Yayasan
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">
+                        Membangun Generasi Cerdas & Mandiri Melalui Pendidikan Masyarakat
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        <strong>PKBM Amanah Bangsa</strong> adalah Pusat Kegiatan Belajar Masyarakat di bawah naungan Yayasan Amanah Bangsa. Kami berkomitmen untuk memberikan akses pendidikan non-formal yang inklusif, fleksibel, dan berkualitas tinggi bagi seluruh lapisan masyarakat yang belum sempat menyelesaikan pendidikan formalnya.
+                    </p>
+
+                    <!-- Visi Misi Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="p-4 bg-slate-50 rounded-xl border border-gray-100">
+                            <div class="text-brand-600 mb-2 text-xl"><i class="fa-solid fa-eye"></i></div>
+                            <h3 class="font-bold text-gray-900 text-sm mb-1">Visi Kami</h3>
+                            <p class="text-xs text-gray-600">Menjadi PKBM unggulan di Kota Langsa dalam mencetak SDM yang berakhlak mulia, cerdas, dan mandiri.</p>
+                        </div>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-gray-100">
+                            <div class="text-brand-600 mb-2 text-xl"><i class="fa-solid fa-bullseye"></i></div>
+                            <h3 class="font-bold text-gray-900 text-sm mb-1">Misi Kami</h3>
+                            <p class="text-xs text-gray-600">Menyelenggarakan program kesetaraan Kurikulum Merdeka terintegrasi pelatihan keterampilan siap kerja.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informasi Profil Data Sekolah (Dapodik Integration) -->
+    <section class="py-16 bg-brand-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="bg-brand-800 text-brand-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Data Profil Resmi</span>
+                <h2 class="text-2xl sm:text-3xl font-bold mt-2">Statistik & Data Kelembagaan</h2>
+                <p class="text-brand-200 text-sm mt-1">Data pokok pendidikan terdaftar di Kemendikbudristek RI</p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 text-center">
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-id-card text-accent-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-brand-200">NPSN</p>
+                    <p class="font-bold text-lg">P2970447</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-award text-accent-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-brand-200">Akreditasi</p>
+                    <p class="font-bold text-lg">Akreditasi C</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-users text-accent-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-brand-200">Siswa Aktif</p>
+                    <p class="font-bold text-lg">35 Siswa</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-layer-group text-accent-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-brand-200">Rombel</p>
+                    <p class="font-bold text-lg">5 Rombel</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-door-open text-accent-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-brand-200">Ruang Kelas</p>
+                    <p class="font-bold text-lg">3 Ruangan</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                    <i class="fa-solid fa-book-bookmark text-accent-500 text-2xl mb-2"></i>
+                    <p class="text-xs text-brand-200">Kurikulum</p>
+                    <p class="font-bold text-sm mt-1">Paket C Merdeka</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Program Kesetaraan Section -->
+    <section id="program" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full uppercase tracking-wider">
+                    Pilihan Program
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">Program Pendidikan & Keterampilan</h2>
+                <p class="text-gray-600 text-base">
+                    Kami menyediakan berbagai jenjang pendidikan kesetaraan yang diakui secara nasional serta kursus keterampilan praktis.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Paket A -->
+                <div class="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paket A (Setara SD)</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Program pendidikan kesetaraan tingkat dasar untuk memberikan fondasi kemampuan membaca, menulis, dan berhitung.
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Usia tidak dibatasi</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Kurikulum Merdeka</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Ijazah Resmi SD</li>
+                        </ul>
+                    </div>
+                    <a href="#daftar" class="block text-center w-full py-2.5 bg-slate-100 hover:bg-brand-600 hover:text-white text-gray-700 text-sm font-semibold rounded-xl transition-colors">Daftar Paket A</a>
+                </div>
+
+                <!-- Paket B -->
+                <div class="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paket B (Setara SMP)</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Program pendidikan tingkat menengah pertama untuk memperdalam pengetahuan dasar dan persiapan ke jenjang berikutnya.
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Syarat: Ijazah SD/MI</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Modul Pembelajaran Lengkap</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Ijazah Resmi SMP</li>
+                        </ul>
+                    </div>
+                    <a href="#daftar" class="block text-center w-full py-2.5 bg-slate-100 hover:bg-brand-600 hover:text-white text-gray-700 text-sm font-semibold rounded-xl transition-colors">Daftar Paket B</a>
+                </div>
+
+                <!-- Paket C -->
+                <div class="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-accent-500 text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase">Populer</div>
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Paket C (Setara SMA)</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Pendidikan menengah atas bagi lulusan Paket B/SMP yang ingin melanjut ke Perguruan Tinggi atau bekerja.
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Bisa Kuliah / Kerja</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Pembelajaran Hybrid/Online</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Ijazah Resmi SMA</li>
+                        </ul>
+                    </div>
+                    <a href="#daftar" class="block text-center w-full py-2.5 bg-brand-600 text-white hover:bg-brand-700 text-sm font-semibold rounded-xl transition-colors">Daftar Paket C</a>
+                </div>
+
+                <!-- Pelatihan & Kursus -->
+                <div class="bg-white rounded-2xl p-6 shadow-md shadow-slate-200/50 border border-gray-100 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                    <div>
+                        <div class="w-14 h-14 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kursus & Skill</h3>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Program pelatihan wirausaha, komputer, tata busana, dan keterampilan praktis pendukung karir.
+                        </p>
+                        <ul class="text-xs text-gray-500 space-y-2 mb-6">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Komputer & Desain</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Kewirausahaan & UMKM</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-600"></i> Sertifikat Pelatihan</li>
+                        </ul>
+                    </div>
+                    <a href="#daftar" class="block text-center w-full py-2.5 bg-slate-100 hover:bg-brand-600 hover:text-white text-gray-700 text-sm font-semibold rounded-xl transition-colors">Pilih Kursus</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section id="keunggulan" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full uppercase tracking-wider">
+                    Mengapa Memilih Kami
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">Keunggulan PKBM Amanah Bangsa</h2>
+                <p class="text-gray-600 text-base">
+                    Solusi terbaik bagi Anda yang butuh fleksibilitas belajar tanpa mengorbankan kualitas pendidikan.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Waktu Fleksibel</h3>
+                        <p class="text-sm text-gray-600">Jadwal belajar disesuaikan dengan aktivitas warga belajar, sangat cocok bagi pekerja atau ibu rumah tangga.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-chalkboard-user"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Tutor Berpengalaman</h3>
+                        <p class="text-sm text-gray-600">Pengajar ramah, kompeten, dan siap mendampingi proses belajar hingga lulus dengan nilai memuaskan.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-laptop text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Metode Hybrid Learning</h3>
+                        <p class="text-sm text-gray-600">Kombinasi tatap muka dan belajar online melalui platform digital yang mudah diakses dari mana saja.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Biaya Terjangkau</h3>
+                        <p class="text-sm text-gray-600">Biaya pendidikan yang sangat terjangkau dengan skema pembayaran yang fleksibel dan transparan.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Ijazah Terakreditasi</h3>
+                        <p class="text-sm text-gray-600">Ijazah diterbitkan resmi oleh Kementerian Pendidikan dan dapat digunakan melanjutkan kuliah / melamar kerja.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start gap-4 p-6 bg-slate-50 rounded-2xl border border-gray-100">
+                    <div class="w-12 h-12 bg-brand-600 text-white rounded-xl flex items-center justify-center text-xl shrink-0">
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-2">Pembekalan Kerja</h3>
+                        <p class="text-sm text-gray-600">Tidak hanya teori, kami memberikan sertifikasi dan keterampilan vokasi yang langsung berguna di dunia kerja.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeri Kegiatan -->
+    <section id="galeri" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full uppercase tracking-wider">
+                    Dokumentasi
+                </div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 tracking-tight">Galeri Kegiatan Belajar</h2>
+                <p class="text-gray-600 text-base">
+                    Momen-momen semangat warga belajar PKBM Amanah Bangsa dalam mengejar cita-cita.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-2xl shadow-md group relative">
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" 
+                         alt="Kegiatan Belajar" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/16a34a/ffffff?text=Ujian+Kesetaraan'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="font-bold text-base">Ujian Nasional Kesetaraan</p>
+                        <p class="text-xs text-gray-300">Pelaksanaan asesmen berbasis komputer.</p>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-2xl shadow-md group relative">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" 
+                         alt="Pelatihan Komputer" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/16a34a/ffffff?text=Pelatihan+Komputer'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="font-bold text-base">Pelatihan Digital Skill</p>
+                        <p class="text-xs text-gray-300">Belajar aplikasi perkantoran dan desain grafis.</p>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-2xl shadow-md group relative">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=600&q=80" 
+                         alt="Wisuda Kelulusan" 
+                         class="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                         onerror="this.src='https://placehold.co/600x400/16a34a/ffffff?text=Wisuda+Kelulusan'">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 text-white">
+                        <p class="font-bold text-base">Pelepasan & Wisuda Alumni</p>
+                        <p class="text-xs text-gray-300">Perayaan kelulusan warga belajar Paket C.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Pendaftaran / PPDB Section -->
+    <section id="daftar" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-brand-900 to-brand-700 rounded-3xl shadow-2xl overflow-hidden p-8 sm:p-12 text-white relative">
+                <!-- Background decorative shapes -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-2xl pointer-events-none"></div>
+
+                <div class="relative z-10 text-center max-w-2xl mx-auto mb-10 space-y-3">
+                    <span class="bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full border border-white/20 uppercase tracking-wider">Formulir PPDB Online</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Pendaftaran Peserta Didik Baru</h2>
+                    <p class="text-brand-100 text-sm">Isi formulir singkat di bawah ini. Tim admisi kami akan segera menghubungi Anda untuk verifikasi dokumen.</p>
+                </div>
+
+                <!-- Alert Message Box -->
+                <div id="form-alert" class="hidden mb-6 p-4 rounded-xl text-sm font-medium transition-all"></div>
+
+                <form id="ppdb-form" class="relative z-10 space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-100 mb-2">Nama Lengkap *</label>
+                            <input type="text" id="nama" required placeholder="Sesuai KTP / KK" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-brand-200/50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:bg-white/20 transition-all text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-brand-100 mb-2">Nomor WhatsApp / HP *</label>
+                            <input type="tel" id="telepon" required placeholder="Contoh: 081234567890" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-brand-200/50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:bg-white/20 transition-all text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-medium text-brand-100 mb-2">Pilihan Program *</label>
+                            <select id="program-studi" required class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white focus:outline-none focus:ring-2 focus:ring-brand-400 focus:bg-white/20 transition-all text-sm [&>option]:text-gray-900">
+                                <option value="">-- Pilih Program Kesetaraan --</option>
+                                <option value="Paket A">Paket A (Setara SD)</option>
+                                <option value="Paket B">Paket B (Setara SMP)</option>
+                                <option value="Paket C">Paket C (Setara SMA)</option>
+                                <option value="Kursus Keterampilan">Kursus Keterampilan / Skill</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-brand-100 mb-2">Pendidikan Terakhir *</label>
+                            <input type="text" id="pendidikan" required placeholder="Contoh: SD / SMP Putus Sekolah" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-brand-200/50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:bg-white/20 transition-all text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-brand-100 mb-2">Alamat Domisili *</label>
+                        <textarea id="alamat" rows="3" required placeholder="Alamat lengkap tempat tinggal saat ini" class="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-brand-200/50 focus:outline-none focus:ring-2 focus:ring-brand-400 focus:bg-white/20 transition-all text-sm"></textarea>
+                    </div>
+
+                    <div class="text-center pt-2">
+                        <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-accent-500 hover:bg-accent-600 text-gray-900 font-bold rounded-xl shadow-lg transition-all hover:-translate-y-0.5">
+                            Kirim Pendaftaran via WhatsApp <i class="fa-brands fa-whatsapp ml-2 text-lg"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak & Lokasi Section -->
+    <section id="kontak" class="py-20 bg-slate-50 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                <!-- Contact Info -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <div class="inline-block px-3 py-1 bg-brand-100 text-brand-700 text-xs font-semibold rounded-full uppercase tracking-wider mb-3">
+                            Hubungi Kami
+                        </div>
+                        <h2 class="text-3xl font-bold text-gray-900 tracking-tight">Sekretariat PKBM Amanah Bangsa</h2>
+                        <p class="text-gray-600 text-sm mt-2">Silakan kunjungi lokasi kami atau hubungi kontak terdaftar untuk konsultasi pendaftaran.</p>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Alamat Sekretariat</h4>
+                                <p class="text-gray-600 text-sm mt-1">Jl. Jend. A. Yani, Gang Serambi No. 3, Kec. Langsa Baro, Kota Langsa, Prov. Aceh</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Identitas Lembaga</h4>
+                                <p class="text-gray-600 text-sm mt-1">NPSN: <strong>P2970447</strong> | Bentuk Pendidikan: PKBM Swasta</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-xl flex items-center justify-center text-xl shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 text-sm">Sistem Pembelajaran</h4>
+                                <p class="text-gray-600 text-sm mt-1">Sehari Penuh / 3 Hari (Semester 2026/2027 Gasal)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map / Location Placeholder -->
+                <div class="lg:col-span-7">
+                    <div class="w-full h-full min-h-[350px] bg-gray-200 rounded-3xl overflow-hidden shadow-sm relative border border-gray-200">
+                        <iframe 
+                            class="w-full h-full min-h-[350px]"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15915.203875317673!2d97.9400!3d4.4750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303768ff40c4a933%3A0x4039d80b220cc30!2sLangsa%20Baro%2C%20Langsa%20City%2C%20Aceh!5e0!3m2!1sen!2sid!4v1680000000000!5m2!1sen!2sid" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-gray-800">
+                <div class="md:col-span-2 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-brand-600 rounded-xl flex items-center justify-center text-white text-lg font-bold">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <span class="text-xl font-bold text-white tracking-tight">PKBM AMANAH BANGSA</span>
+                    </div>
+                    <p class="text-sm text-gray-400 max-w-sm leading-relaxed">
+                        Lembaga Pendidikan Kesetaraan (Paket A, B, C) Terakreditasi Resmi di Kota Langsa, Prov. Aceh. NPSN: P2970447.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Navigasi Cepat</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#beranda" class="hover:text-brand-500 transition-colors">Beranda</a></li>
+                        <li><a href="#tentang" class="hover:text-brand-500 transition-colors">Tentang Kami</a></li>
+                        <li><a href="#program" class="hover:text-brand-500 transition-colors">Program Paket A/B/C</a></li>
+                        <li><a href="#daftar" class="hover:text-brand-500 transition-colors">Pendaftaran PPDB</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold text-sm mb-4">Media Sosial</h4>
+                    <div class="flex gap-3">
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 text-white rounded-xl flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 text-white rounded-xl flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 hover:bg-brand-600 text-white rounded-xl flex items-center justify-center transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+                <p>&copy; 2026 PKBM Amanah Bangsa - Langsa, Aceh. All rights reserved.</p>
+                <p>NPSN: P2970447</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript Logic -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close Mobile Menu on Click Link
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Handle PPDB Form Submission via WhatsApp
+        const ppdbForm = document.getElementById('ppdb-form');
+        const formAlert = document.getElementById('form-alert');
+
+        ppdbForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form values
+            const nama = document.getElementById('nama').value.trim();
+            const telepon = document.getElementById('telepon').value.trim();
+            const program = document.getElementById('program-studi').value;
+            const pendidikan = document.getElementById('pendidikan').value.trim();
+            const alamat = document.getElementById('alamat').value.trim();
+
+            if (!nama || !telepon || !program || !pendidikan || !alamat) {
+                formAlert.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-red-500/20 text-red-200 border border-red-500/30";
+                formAlert.innerText = "Mohon lengkapi semua bidang isian formulir.";
+                formAlert.classList.remove('hidden');
+                return;
+            }
+
+            // Show Success Notification
+            formAlert.className = "mb-6 p-4 rounded-xl text-sm font-medium bg-green-500/20 text-green-200 border border-green-500/30";
+            formAlert.innerText = "Data berhasil disiapkan! Mengalihkan Anda ke WhatsApp Admin...";
+            formAlert.classList.remove('hidden');
+
+            // Format WhatsApp Message
+            const adminPhone = "6281234567890"; // Ganti dengan nomor WhatsApp Admin PKBM
+            const message = `Halo Admin PKBM Amanah Bangsa,%0A%0ASaya ingin mendaftar PPDB Online dengan data berikut:%0A%0A` +
+                            `• *Nama*: ${encodeURIComponent(nama)}%0A` +
+                            `• *No. HP/WA*: ${encodeURIComponent(telepon)}%0A` +
+                            `• *Program*: ${encodeURIComponent(program)}%0A` +
+                            `• *Pendidikan Terakhir*: ${encodeURIComponent(pendidikan)}%0A` +
+                            `• *Alamat*: ${encodeURIComponent(alamat)}%0A%0A` +
+                            `Mohon informasi langkah selanjutnya. Terima kasih.`;
+
+            // Open WhatsApp Link after brief delay
+            setTimeout(() => {
+                window.open(`https://wa.me/${adminPhone}?text=${message}`, '_blank');
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
